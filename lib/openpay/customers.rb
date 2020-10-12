@@ -166,6 +166,10 @@ class Customers < OpenPayResource
     create(card, "#{customer}/cards")
   end
 
+  def update_card(customer, card, card_id)
+    put(card, "#{customer}/cards/#{card_id}")
+  end
+
   def get_card(customer, card_id)
     get("#{customer}/cards/#{card_id}")
   end

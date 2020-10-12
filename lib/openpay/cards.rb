@@ -20,6 +20,15 @@ class Cards < OpenPayResource
     end
   end
 
+  def update(card, customer_id=nil, card_id=nil)
+    if customer_id
+      customers=@api_hook.create(:customers)
+      customers.update_card(customer_id, card, card_id)
+    else
+      super card
+    end
+  end
+
   def delete(card_id,customer_id=nil)
     if customer_id
       customers=@api_hook.create(:customers)
